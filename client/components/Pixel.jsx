@@ -5,8 +5,9 @@ class Pixel extends React.Component {
     super(props)
     this.state = {
       style: {
-        height: '50px',
-        width: '50px',
+        height: '20px',
+        width: '20px',
+        borderRadius: '20px',
         backgroundColor: this.randomHexColor()
       }
     }
@@ -17,8 +18,20 @@ class Pixel extends React.Component {
   clickHandler = () => {
     this.setState({
       style: {
-        height: '50px',
-        width: '50px',
+        height: '20px',
+        width: '20px',
+        borderRadius: '20px',
+        backgroundColor: this.randomHexColor()
+      }
+    })
+  }
+
+  mouseEnter = () => {
+    this.setState({
+      style: {
+        height: '20px',
+        width: '20px',
+        borderRadius: '20px',
         backgroundColor: this.randomHexColor()
       }
     })
@@ -26,7 +39,7 @@ class Pixel extends React.Component {
 
   render () {
     return (
-      <div style = {this.state.style} onClick = {this.clickHandler}></div>
+      <div style = {this.state.style} onClick = {this.clickHandler} onMouseEnter = {this.mouseEnter}></div>
     )
   }
 }
