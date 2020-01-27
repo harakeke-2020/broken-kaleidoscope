@@ -9,13 +9,13 @@ class Pixel extends React.Component {
     this.state = {
       style: {
         backgroundColor: this.randomHexColor,
-        height: '3px',
-        width: '3px'
+        height: '15px',
+        width: '15px'
       }
     }
   }
 
-  clickHandler = evt => {
+  changeColor = evt => {
     this.setState({
       style: {
         backgroundColor: this.randomHexColor
@@ -25,7 +25,7 @@ class Pixel extends React.Component {
 
   render () {
     return (
-      <div onMouseOver={this.clickHandler} style={this.state.style}></div>
+      <div onMouseOver={this.changeColor} style={this.state.style}></div>
     )
   }
 }
