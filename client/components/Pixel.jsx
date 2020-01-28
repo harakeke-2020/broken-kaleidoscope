@@ -19,10 +19,36 @@ class Pixel extends React.Component {
 randomHexColor = () =>
   `#${Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, 0)}`
 
+clickHandler = evt =>
+  this.setState({
+    backgroundColor: this.randomHexColor()
+  })
+
+onMouseEnter = evt =>
+  this.setState({
+    backgroundColor: this.randomHexColor()
+  })
+
+onContextMenu = evt => {
+  evt.preventDefault()
+  this.setState({
+    backgroundColor: 'black'
+  })
+}
+
+onDoubleClick = evt =>
+  this.setState({
+    backgroundColor: 'white'
+  })
+
+onDragEnter = evt =>
+  this.setState({
+    backgroundColor: 'red'
+  })
+
 render () {
   return (
-
-    <div style = {this.state}>
+    <div style={this.state} onClick={this.clickHandler} onMouseEnter={this.onMouseEnter} onContextMenu={this.onContextMenu} onDoubleClick={this.onDoubleClick} onDragEnter={this.onDragEnter}>
     </div>
   )
 }
