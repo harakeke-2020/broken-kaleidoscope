@@ -1,10 +1,11 @@
 import React from 'react'
 
 class Pixel extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       style: {
+        id: props.id,
         width: '50px',
         height: '50px',
         backgroundColor: 'rgb(0,0,255)'
@@ -12,10 +13,7 @@ class Pixel extends React.Component {
     }
     this.red = 0
     this.blue = 255
-  }
-
-  randomHexColor = () => {
-    return `#${Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, 0)}`
+    this.neighbours = props.neighbours
   }
 
   changePixelColor = () => {
@@ -23,32 +21,13 @@ class Pixel extends React.Component {
     // return 'rgb(' + red.toString() + ',0,0)'
     this.red++
     // this.blue--
-    this.blue = this.blue-3
+    this.blue = this.blue - 3
     // let red = this.red + 2
     // let blue = this.blue + 2
     return 'rgb(' + this.red.toString() + ',0,' + this.blue.toString() + ')'
   }
-  clickHandler = e => {
-    this.setState({
-      style: {
-        width: '50px',
-        height: '50px',
-        backgroundColor: this.randomHexColor()
-      }
-    })
-  }
 
-  moveHandler = () => {
-    this.setState({
-      style: {
-        width: '50px',
-        height: '50px',
-        backgroundColor: this.randomHexColor()
-      }
-    })
-  }
-
-  changeColor = () => {
+  mouseHandler = () => {
     this.setState({
       style: {
         width: '50px',
@@ -56,29 +35,36 @@ class Pixel extends React.Component {
         backgroundColor: this.changePixelColor()
       }
     })
+    this.getId()
+    this.changeNeighbour()
+    // this.getNeighbours()
   }
 
+  getId = () => {
+    return console.log(this.state.style.id)
+  }
+
+  getNeighbours = () => {
+    return (this.neighbours)
+  }
+
+  changeNeighbour = () => {
+    if (this.id === this.getNeighbours()[0]) {
+      this.setState({
+        style: {
+          width: '50px',
+          height: '50px',
+          backgroundColor: 'black'
+        }
+      })
+    }
+  }
   render () {
     return (
-      <div style={this.state.style} onMouseMove={this.changeColor}>
+      <div style={this.state.style} onMouseMove={this.mouseHandler}>
       </div>
     )
   }
 }
-
-// const Pixel = () => {
-
-//   class
-//   return (
-//     <>
-//     <div style={{
-//       width: '50px',
-//       height: '50px',
-//       backgroundColor: 'red'
-//     }}>
-//     </div>
-//     </>
-//   )
-// }
 
 export default Pixel
