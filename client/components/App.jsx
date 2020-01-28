@@ -3,35 +3,11 @@ import Pixel from './Pixel.jsx'
 
 const App = () => {
   // Gives a random color
-
-  return (
-    <>
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    <Pixel />
-    </>
-  )
+  let boxArr = []
+  for (var i = 0; i < 1000; i++) {
+    boxArr.push(<Pixel />)
+  }
+  return boxArr
 }
 
 export default App
