@@ -6,10 +6,9 @@ function Pixel (props) {
   return (
     <div>
       <Style />
+      
     </div>
   )
 }
 
 export default Pixel
-
- 
