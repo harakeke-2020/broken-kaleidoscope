@@ -5,7 +5,7 @@ import Pixel from './Pixel'
 const App = () => {
   return (
 
-    Array.from({ length: 500 }, (v, i) => <Pixel />)
+    Array.from({ length: 56 }, (v, i) => <Pixel />)
 
   )
 }

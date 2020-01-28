@@ -8,15 +8,29 @@ class Style extends React.Component {
     super()
 
     this.state = {
-      style: randomHexColor()
+      style: randomHexColor(),
+      height: '50px',
+      width: '50px',
+      borderRadius: '100%'
+
     }
   }
 
   componentDidMount () {
-    this.change = setInterval(() => this.setState({ style: randomHexColor() }), 20)
-  }
-  componentWillUnmount () {
-    clearInterval(this.interval)
+    this.change = setInterval(() => this.setState(
+      {
+        style: randomHexColor(),
+        height: '100px',
+        width: '100px',
+        borderRadius: '25%'
+      }), 250)
+    this.change = setInterval(() => this.setState(
+      {
+        // style: randomHexColor()
+        height: '150px',
+        width: '150px',
+        borderRadius: '50%'
+      }), 5)
   }
 
   clickHandler = evt => {
@@ -35,8 +49,9 @@ class Style extends React.Component {
       return (
     <>
       <div onClick={this.clickHandler} onMouseEnter={this.moveHandler} style={{
-        height: '50px',
-        width: '50px',
+        height: this.state.height,
+        width: this.state.width,
+        borderRadius: this.state.borderRadius,
         backgroundColor: this.state.style
       }}>
       </div>
