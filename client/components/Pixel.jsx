@@ -5,8 +5,8 @@ class Pixel extends React.Component {
     super(props)
     this.state = {
       backgroundColor: this.randomHexColor(),
-      height: '60px',
-      width: '60px'
+      height: '20px',
+      width: '20px'
     }
   }
 
