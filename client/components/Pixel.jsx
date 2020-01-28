@@ -1,4 +1,5 @@
 import React from 'react'
+import Style from './Style'
 
 const randomColor = () => `#${Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, 0)}`
 
@@ -17,13 +18,9 @@ class Pixel extends React.Component {
   render () {
     return (
       <>
-        <div style={{
-          height: '10px',
-          width: '10px',
-          background: this.state.style
-        }}>
+        <div onClick={this.handleClick}>
+          <Style colorChange={this.state.style}/>
         </div>
-        <button onClick={this.handleClick}>Change the colors</button>
       </>
     )
   }
