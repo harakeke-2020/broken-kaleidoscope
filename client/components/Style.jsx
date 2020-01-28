@@ -12,6 +12,13 @@ class Style extends React.Component {
     }
   }
 
+  componentDidMount () {
+    this.change = setInterval(() => this.setState({ style: randomHexColor() }), 20)
+  }
+  componentWillUnmount () {
+    clearInterval(this.interval)
+  }
+
   clickHandler = evt => {
     this.setState({
       style: 'blue'
@@ -28,8 +35,8 @@ class Style extends React.Component {
       return (
     <>
       <div onClick={this.clickHandler} onMouseEnter={this.moveHandler} style={{
-        height: '25px',
-        width: '25px',
+        height: '50px',
+        width: '50px',
         backgroundColor: this.state.style
       }}>
       </div>
