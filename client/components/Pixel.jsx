@@ -8,8 +8,8 @@ class Pixel extends React.Component {
     super()
     this.state = {
       style: {
-        height: '20px',
-        width: '20px',
+        height: '3px',
+        width: '3px',
         backgroundColor: randomHexColor()
       }
     }
@@ -17,14 +17,18 @@ class Pixel extends React.Component {
 
   clickHandler = evt => {
     this.setState({
-      backgroundColor: randomHexColor()
+      style: {
+        height: '3px',
+        width: '3px',
+        backgroundColor: randomHexColor()
+      }
     })
   }
 
   render () {
     return (
-      <div style={this.state.style}/>
-      <div><button onClick={</div>
+      <div style={this.state.style} onClick={this.clickHandler}>
+      </div>
     )
   }
 }
