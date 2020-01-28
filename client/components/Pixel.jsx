@@ -48,7 +48,6 @@ class Pixel extends React.Component {
   }
 
   refresh = () => {
-    let size = this.randomSize()
     this.setState({
       style: {
         height: '40px',
