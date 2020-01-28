@@ -22,7 +22,8 @@ class Pixel extends React.Component {
     // let red = 255
     // return 'rgb(' + red.toString() + ',0,0)'
     this.red++
-    this.blue--
+    // this.blue--
+    this.blue = this.blue-3
     // let red = this.red + 2
     // let blue = this.blue + 2
     return 'rgb(' + this.red.toString() + ',0,' + this.blue.toString() + ')'
