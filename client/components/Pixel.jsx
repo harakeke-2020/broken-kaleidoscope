@@ -36,7 +36,7 @@ class Pixel extends React.Component {
       }
     })
     this.getId()
-    this.changeNeighbour()
+    // this.changeNeighbour()
     // this.getNeighbours()
   }
 
@@ -59,9 +59,21 @@ class Pixel extends React.Component {
       })
     }
   }
+
+  mouseClick = () => {
+    this.setState({
+      style: {
+        width: '50px',
+        height: '50px',
+        backgroundColor: this.props.function()
+      }
+    })
+    this.getId()
+  }
+
   render () {
     return (
-      <div style={this.state.style} onMouseMove={this.mouseHandler}>
+      <div style={this.state.style} onClick={this.mouseClick}>
       </div>
     )
   }
