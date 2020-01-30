@@ -24,16 +24,28 @@ import Colors from './Colors.jsx'
 class App extends React.Component {
   constructor (props) {
     super(props)
-    this.boxArr = []
+    this.state = {
+      color: 'red'
+    }
+  }
+
+  clickHandler = () => {
+    this.setState({
+      color: 'green'
+    })
   }
 
   render () {
+    let boxArr = []
     for (var i = 0; i < 500; i++) {
-      this.boxArr.push(<Pixel id={i} />)
+      boxArr.push(<Pixel id={i} key={i} color={this.state.color}/>)
     }
 
     return (
-      this.boxArr
+      <>
+      {boxArr}
+      <button onClick={this.clickHandler}>change color</button>
+      </>
     )
   }
 }

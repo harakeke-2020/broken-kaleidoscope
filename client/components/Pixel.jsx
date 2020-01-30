@@ -19,7 +19,7 @@ class Pixel extends React.Component {
   changePixelColor = () => {
     // let red = 255
     // return 'rgb(' + red.toString() + ',0,0)'
-    this.red++
+    this.red = this.red + 3
     // this.blue--
     this.blue = this.blue - 3
     // let red = this.red + 2
@@ -44,28 +44,12 @@ class Pixel extends React.Component {
     return console.log(this.state.style.id)
   }
 
-  getNeighbours = () => {
-    return (this.neighbours)
-  }
-
-  changeNeighbour = () => {
-    if (this.id === this.getNeighbours()[0]) {
-      this.setState({
-        style: {
-          width: '50px',
-          height: '50px',
-          backgroundColor: 'black'
-        }
-      })
-    }
-  }
-
   mouseClick = () => {
     this.setState({
       style: {
         width: '50px',
         height: '50px',
-        backgroundColor: this.props.function()
+        backgroundColor: this.props.color
       }
     })
     this.getId()
@@ -73,7 +57,7 @@ class Pixel extends React.Component {
 
   render () {
     return (
-      <div style={this.state.style} onClick={this.mouseClick}>
+      <div style={this.state.style} onMouseOver={this.mouseHandler} onClick={this.mouseClick}>
       </div>
     )
   }
