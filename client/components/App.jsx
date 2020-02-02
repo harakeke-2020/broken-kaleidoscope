@@ -1,8 +1,13 @@
 import React from 'react'
+import Square from './Squares'
 
 const App = () => {
   return (
-    <div>React development has begun!</div>
+    <>
+    <Square />
+    <Square />
+    <Square />
+    </>
   )
 }
 
